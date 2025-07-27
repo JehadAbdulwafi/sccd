@@ -26,13 +26,14 @@ class UpdateJournalArticleRequest extends FormRequest
       'title' => ['required', 'string', 'max:255'],
       'authors' => ['sometimes', 'json'],
       'tag' => ['nullable', 'string'],
+      'file_path' => ['nullable', 'string'],
     ];
 
-    if ($this->hasFile('file_path')) {
-      $rules['file_path'] = ['nullable', 'file', 'mimes:pdf,doc,docx,txt,xls,xlsx,ppt,pptx'];
-    } else {
-      $rules['file_path'] = ['nullable', 'string'];
-    }
+    // if ($this->hasFile('file_path')) {
+    //   $rules['file_path'] = ['nullable', 'file', 'mimes:pdf,doc,docx,txt,xls,xlsx,ppt,pptx'];
+    // } else {
+    //   $rules['file_path'] = ['nullable', 'string'];
+    // }
 
     return $rules;
   }

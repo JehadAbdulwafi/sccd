@@ -60,8 +60,8 @@ export default function EditPublicationPage() {
     console.log("Form data", form.data)
     form.transform((data) => ({
       ...data,
-      image: typeof data.image === 'object' ? data.image : null,
-      file: typeof data.file === 'object' ? data.file : null,
+      // image: typeof data.image === 'object' ? data.image : null,
+      // file: typeof data.file === 'object' ? data.file : null,
       authors: JSON.stringify(data.authors),
       _method: 'PUT'
     }));

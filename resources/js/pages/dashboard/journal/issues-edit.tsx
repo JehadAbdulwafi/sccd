@@ -44,7 +44,7 @@ export default function EditIssuePage() {
 
     form.transform((data) => ({
       ...data,
-      cover_image: typeof data.cover_image === 'object' ? data.cover_image : null,
+      // cover_image: typeof data.cover_image === 'object' ? data.cover_image : null,
       _method: 'PUT'
     }));
 

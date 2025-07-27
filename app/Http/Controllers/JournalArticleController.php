@@ -16,7 +16,7 @@ class JournalArticleController extends Controller
   {
     $articles = JournalArticle::addSelect([
       'journal_issue_title' => JournalIssue::select('title')
-        ->whereColumn('journal_issues.id', 'journal_issue_id')
+        ->whereColumn('journal_issues.id', 'journal_articles.journal_issue_id')->limit(1)
     ])->get();
 
     return Inertia::render('dashboard/journal/articles-list', [
@@ -45,10 +45,10 @@ class JournalArticleController extends Controller
   {
     $data = $request->validated();
 
-    if ($request->hasFile('file_path')) {
-      $path = $request->file('file_path')->store('journal-articles', 'public');
-      $data['file_path'] = asset('storage/' . $path);
-    }
+    // if ($request->hasFile('file_path')) {
+    //   $path = $request->file('file_path')->store('journal-articles', 'public');
+    //   $data['file_path'] = asset('storage/' . $path);
+    // }
 
     if (isset($data['authors'])) {
       $data['authors'] = json_decode($data['authors'], true);
@@ -70,12 +70,12 @@ class JournalArticleController extends Controller
   {
     $data = $request->validated();
 
-    if ($request->hasFile('file_path')) {
-      $path = $request->file('file_path')->store('journal-articles', 'public');
-      $data['file_path'] = asset('storage/' . $path);
-    } else if (empty($data['file_path'])) {
-      $data['file_path'] = $article->file_path;
-    }
+    // if ($request->hasFile('file_path')) {
+    //   $path = $request->file('file_path')->store('journal-articles', 'public');
+    //   $data['file_path'] = asset('storage/' . $path);
+    // } else if (empty($data['file_path'])) {
+    //   $data['file_path'] = $article->file_path;
+    // }
 
     if (isset($data['authors'])) {
       $data['authors'] = json_decode($data['authors'], true);

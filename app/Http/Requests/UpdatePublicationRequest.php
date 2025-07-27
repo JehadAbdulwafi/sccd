@@ -31,17 +31,19 @@ class UpdatePublicationRequest extends FormRequest
       'tag' => 'nullable|string',
     ];
 
-    if ($this->hasFile('image')) {
-      $rules['image'] = ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg|max:2048'];
-    } else {
-      $rules['image'] = ['nullable', 'string'];
-    }
-
-    if ($this->hasFile('file')) {
-      $rules['file'] = ['nullable', 'file', 'mimes:pdf,doc,docx,txt,xls,xlsx,ppt,pptx'];
-    } else {
-      $rules['file'] = ['nullable', 'string'];
-    }
+    $rules['image'] = ['nullable', 'string'];
+    $rules['file'] = ['nullable', 'string'];
+    // if ($this->hasFile('image')) {
+    //   $rules['image'] = ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg|max:2048'];
+    // } else {
+    //   $rules['image'] = ['nullable', 'string'];
+    // }
+    //
+    // if ($this->hasFile('file')) {
+    //   $rules['file'] = ['nullable', 'file', 'mimes:pdf,doc,docx,txt,xls,xlsx,ppt,pptx'];
+    // } else {
+    //   $rules['file'] = ['nullable', 'string'];
+    // }
 
 
     return $rules;

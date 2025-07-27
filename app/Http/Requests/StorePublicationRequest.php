@@ -22,8 +22,10 @@ class StorePublicationRequest extends FormRequest
   public function rules(): array
   {
     return [
-      'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-      'file' => 'nullable|file|mimes:pdf,doc,docx|max:10240',
+      // 'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+      // 'file' => 'nullable|file|mimes:pdf,doc,docx|max:10240',
+      'image' => 'nullable|string',
+      'file' => 'nullable|string',
       'authors' => ['sometimes', 'json'],
       'title' => 'required|string|max:255',
       'description' => 'nullable|string',

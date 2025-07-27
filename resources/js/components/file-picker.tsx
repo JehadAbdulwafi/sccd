@@ -3,10 +3,11 @@
 import { ChangeEvent, useCallback, useState, useEffect } from "react";
 import { Upload, X, File as FileIcon, Eye } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { uploadImageToSupabase } from "@/config/supa";
 
 interface FilePickerProps {
   defaultFile?: string | null;
-  onFileChange: (file: File | null) => void;
+  onFileChange: (file: string | null) => void;
   placeholder?: string;
   className?: string;
 }
@@ -30,9 +31,11 @@ export const FilePicker = ({
     const file = e.target.files?.[0];
     if (!file) return;
 
+    const fileUrl = await uploadImageToSupabase(file);
+
     setFileName(file.name);
     setFileUrl(null);
-    onFileChange(file);
+    onFileChange(fileUrl);
   }, [onFileChange]);
 
   const handleRemoveFile = useCallback(() => {

@@ -37,10 +37,10 @@ class JournalIssueController extends Controller
   {
     $data = $request->validated();
 
-    if ($request->hasFile('cover_image')) {
-      $path = $request->file('cover_image')->store('journal-covers', 'public');
-      $data['cover_image'] = asset('storage/' . $path);
-    }
+    // if ($request->hasFile('cover_image')) {
+    //   $path = $request->file('cover_image')->store('journal-covers', 'public');
+    //   $data['cover_image'] = asset('storage/' . $path);
+    // }
 
     JournalIssue::create($data);
 
@@ -59,12 +59,12 @@ class JournalIssueController extends Controller
   {
     $data = $request->validated();
 
-    if ($request->hasFile('cover_image')) {
-      $path = $request->file('cover_image')->store('journal-covers', 'public');
-      $data['cover_image'] = asset('storage/' . $path);
-    } else if (empty($data['cover_image'])) {
-      $data['cover_image'] = $issue->cover_image;
-    }
+    // if ($request->hasFile('cover_image')) {
+    //   $path = $request->file('cover_image')->store('journal-covers', 'public');
+    //   $data['cover_image'] = asset('storage/' . $path);
+    // } else if (empty($data['cover_image'])) {
+    //   $data['cover_image'] = $issue->cover_image;
+    // }
 
     $issue->update($data);
 

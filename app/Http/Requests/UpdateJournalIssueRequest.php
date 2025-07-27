@@ -27,11 +27,12 @@ class UpdateJournalIssueRequest extends FormRequest
       'published_at' => ['string'],
     ];
 
-    if ($this->hasFile('cover_image')) {
-      $rules['cover_image'] = ['nullable', 'image', 'max:2048'];
-    } else {
-      $rules['cover_image'] = ['nullable', 'string'];
-    }
+    $rules['cover_image'] = ['nullable', 'string'];
+    // if ($this->hasFile('cover_image')) {
+    //   $rules['cover_image'] = ['nullable', 'image', 'max:2048'];
+    // } else {
+    //   $rules['cover_image'] = ['nullable', 'string'];
+    // }
 
     return $rules;
   }

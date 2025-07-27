@@ -84,16 +84,9 @@ Route::get('/journal', function () {
 })->name('journal');
 
 Route::get('/journal/{issue}', function (JournalIssue $issue) {
-  $issues = JournalIssue::withCount([
-    'articles as total_articles'
-  ])->get();
-  $articles = JournalArticle::addSelect([
-    'journal_issue_title' => JournalIssue::select('title')
-  ])
-    ->where('journal_issue_id', $issue->id)
+  $articles = JournalArticle::where('journal_issue_id', $issue->id)
     ->get();
   return Inertia::render('issue', [
-    'issues' => $issues,
     'articles' => $articles,
     'issue' => $issue
   ]);

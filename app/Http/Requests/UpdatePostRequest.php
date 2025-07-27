@@ -26,12 +26,13 @@ class UpdatePostRequest extends FormRequest
       'desc' => ['nullable', 'string', 'max:255'],
       'content' => ['required', 'string'],
     ];
+    $rules['image'] = ['nullable', 'string'];
 
-    if ($this->hasFile('image')) {
-      $rules['image'] = ['nullable', 'image', 'max:2048'];
-    } else {
-      $rules['image'] = ['nullable', 'string'];
-    }
+    // if ($this->hasFile('image')) {
+    //   $rules['image'] = ['nullable', 'image', 'max:2048'];
+    // } else {
+    //   $rules['image'] = ['nullable', 'string'];
+    // }
 
     return $rules;
   }

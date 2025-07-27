@@ -24,7 +24,8 @@ class StoreJournalArticleRequest extends FormRequest
     return [
       'journal_issue_id' => ['required', 'exists:journal_issues,id'],
       'title' => ['required', 'string', 'max:255'],
-      'file_path' => ['required', 'file', 'mimes:pdf,doc,docx,txt,xls,xlsx,ppt,pptx'],
+      // 'file_path' => ['required', 'file', 'mimes:pdf,doc,docx,txt,xls,xlsx,ppt,pptx'],
+      'file_path' => ['required', 'string'],
       'authors' => ['required', 'json'],
       'tag' => 'nullable|string',
     ];

@@ -3,10 +3,11 @@
 import { ChangeEvent, useCallback, useState, useEffect } from "react";
 import { Upload, X } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { uploadImageToSupabase } from "@/config/supa";
 
 interface ImagePickerProps {
   defaultImage?: string | null;
-  onImageChange: (file: File | null) => void;
+  onImageChange: (file: string | null) => void;
   ratio?: number;
   placeholder?: string;
   className?: string;
@@ -31,8 +32,10 @@ export const ImagePicker = ({
     const file = e.target.files?.[0];
     if (!file) return;
 
-    setImageUrl(URL.createObjectURL(file));
-    onImageChange(file);
+    const imageUrl = await uploadImageToSupabase(file);
+
+    setImageUrl(imageUrl || null);
+    onImageChange(imageUrl || null);
   }, [onImageChange]);
 
   const handleRemoveImage = useCallback(() => {

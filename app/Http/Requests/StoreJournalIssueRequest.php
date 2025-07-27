@@ -24,7 +24,8 @@ class StoreJournalIssueRequest extends FormRequest
     return [
       'title' => ['required', 'string', 'max:255'],
       'description' => ['nullable', 'string'],
-      'cover_image' => ['nullable', 'image', 'max:2048'],
+      // 'cover_image' => ['nullable', 'image', 'max:2048'],
+      'cover_image' => ['nullable', 'string'],
       'published_at' => ['required', 'date'],
     ];
   }

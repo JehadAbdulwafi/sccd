@@ -34,15 +34,15 @@ class PublicationController extends Controller
   {
     $data = $request->validated();
 
-    if ($request->hasFile('image')) {
-      $path = $request->file('image')->store('publications', 'public');
-      $data['image'] = asset('storage/' . $path);
-    }
-
-    if ($request->hasFile('file')) {
-      $path = $request->file('file')->store('publications', 'public');
-      $data['file'] = asset('storage/' . $path);
-    }
+    // if ($request->hasFile('image')) {
+    //   $path = $request->file('image')->store('publications', 'public');
+    //   $data['image'] = asset('storage/' . $path);
+    // }
+    //
+    // if ($request->hasFile('file')) {
+    //   $path = $request->file('file')->store('publications', 'public');
+    //   $data['file'] = asset('storage/' . $path);
+    // }
 
     Publication::create($data);
 
@@ -61,19 +61,19 @@ class PublicationController extends Controller
   {
     $data = $request->validated();
 
-    if ($request->hasFile('image')) {
-      $path = $request->file('image')->store('publications', 'public');
-      $data['image'] = asset('storage/' . $path);
-    } else if (empty($data['image'])) {
-      $data['image'] = $publication->image;
-    }
-
-    if ($request->hasFile('file')) {
-      $path = $request->file('file')->store('publications', 'public');
-      $data['file'] = asset('storage/' . $path);
-    } else if (empty($data['file'])) {
-      $data['file'] = $publication->file;
-    }
+    // if ($request->hasFile('image')) {
+    //   $path = $request->file('image')->store('publications', 'public');
+    //   $data['image'] = asset('storage/' . $path);
+    // } else if (empty($data['image'])) {
+    //   $data['image'] = $publication->image;
+    // }
+    //
+    // if ($request->hasFile('file')) {
+    //   $path = $request->file('file')->store('publications', 'public');
+    //   $data['file'] = asset('storage/' . $path);
+    // } else if (empty($data['file'])) {
+    //   $data['file'] = $publication->file;
+    // }
 
     $publication->update($data);
 

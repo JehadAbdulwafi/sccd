@@ -2,18 +2,20 @@
   "version": 2,
   "framework": null,
   "functions": {
-    "api/index.php": { "runtime": "vercel-php@0.7.1" }
+    "api/index.php": {
+      "runtime": "vercel-php@0.7.4"
+    }
   },
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/api/index.php"
-    }
+    { "src": "/images/(.*)", "dest": "/public/images/$1" },
+    { "src": "/build/(.*)", "dest": "/public/build/$1" },
+    { "src": "/background/(.*)", "dest": "/public/background/$1" },
+    { "src": "/(.*)",  "dest": "/api/index.php" }
   ],
   "env": {
     "APP_ENV": "production",
     "APP_DEBUG": "false",
-    "APP_URL": "https://eitrc-beta.vercel.app",
+    "APP_URL": "https://eitrc.vercel.app",
     "APP_KEY": "base64:BTuYeIgBcRppzZmMjp41Z9WFU9dnziT0xCDhKk7elo0=",
     "APP_CONFIG_CACHE": "/tmp/config.php",
     "APP_EVENTS_CACHE": "/tmp/events.php",

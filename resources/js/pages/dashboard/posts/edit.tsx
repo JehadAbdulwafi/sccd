@@ -53,7 +53,7 @@ export default function EditPostPage() {
       title: data.title,
       desc: data.desc,
       content: data.content,
-      image: typeof data.image === 'object' ? data.image : null,
+      // image: typeof data.image === 'object' ? data.image : null,
       _method: 'PUT',
     }));
 
