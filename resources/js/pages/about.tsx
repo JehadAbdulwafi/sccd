@@ -3,7 +3,8 @@ import PageHeaderImage from "@/components/page-header"
 import GuestLayout from "@/layouts/guest-layout"
 import { cn } from "@/lib/utils"
 import { BreadcrumbItem } from "@/types";
-import { BookOpen, ChartPie, ChevronLeft, GraduationCap, Microscope } from "lucide-react"
+import { BookOpen, ChartPie, GraduationCap, Microscope } from "lucide-react"
+import { Head } from '@inertiajs/react';
 
 
 const breadcrumbs: BreadcrumbItem[] = [
@@ -88,6 +89,9 @@ const team = [
 export default function AboutPage() {
   return (
     <GuestLayout>
+      <Head title={"من نحن - مركز البحوث الهندسية وتقنية المعلومات"}>
+        <meta name="description" content={"تعرف على مركز البحوث الهندسية وتقنية المعلومات، رؤيتنا، رسالتنا، وأهدافنا في قيادة الابتكار والتقدم التكنولوجي."} />
+      </Head>
       <div className="min-h-screen bg-gray-50" dir="rtl">
         <PageHeaderImage
           title="حول المركز"

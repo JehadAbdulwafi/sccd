@@ -3,7 +3,7 @@ import NewsCard from "@/components/news-card"
 import PageHeaderImage from "@/components/page-header"
 import { BreadcrumbItem } from "@/types";
 import { Breadcrumbs } from "@/components/breadcrumbs";
-import { usePage } from "@inertiajs/react";
+import { Head, usePage } from "@inertiajs/react";
 
 const breadcrumbs: BreadcrumbItem[] = [
   {
@@ -21,6 +21,10 @@ export default function NewsPage() {
 
   return (
     <GuestLayout>
+      <Head title={"الأخبار - مركز البحوث الهندسية وتقنية المعلومات"}>
+        <meta name="description" content={"ابق على اطلاع بآخر أخبارنا، فعالياتنا، وإنجازاتنا في مجال البحوث الهندسية وتقنية المعلومات."} />
+      </Head>
+
       <div className="min-h-screen bg-gray-50" dir="rtl">
         <PageHeaderImage
           title="الأخبار والأحداث"

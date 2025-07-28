@@ -1,7 +1,6 @@
 import NewsMarquee from '@/components/news-marquee';
 import { Head, Link } from '@inertiajs/react';
 import GuestLayout from '@/layouts/guest-layout';
-import HomeSection from '@/components/home-section';
 import Services from '@/components/services';
 import PartnersMarquee from '@/components/partners-marquee';
 import PublicationsCarousel from '@/components/publications-carousel';
@@ -16,7 +15,8 @@ export default function Welcome() {
 
   return (
     <>
-      <Head title="Welcome">
+      <Head title={"مركز البحوث الهندسية وتقنية المعلومات - الصفحة الرئيسية"}>
+        <meta name="description" content={" نحن نقود الابتكار في مجال البحوث الهندسية وتقنية المعلومات، ونسعى لتطوير حلول تقنية متقدمة تخدم المجتمع وتساهم في التقدم العلمي والتكنولوجي."} />
         <link rel="preconnect" href="https://fonts.bunny.net" />
         <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
       </Head>

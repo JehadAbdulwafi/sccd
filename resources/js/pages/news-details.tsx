@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button"
 import GuestLayout from "@/layouts/guest-layout"
-import { Link, usePage } from "@inertiajs/react"
-import { ArrowRight, Calendar } from "lucide-react"
+import { Head, Link, usePage } from "@inertiajs/react"
+import { ArrowRight } from "lucide-react"
 import PageHeader from "@/components/page-header"
 import Editor from "@/components/editor"
 
@@ -10,6 +10,9 @@ export default function NewsDetailPage() {
 
   return (
     <GuestLayout>
+      <Head title={`- أخبار مركز البحوث الهندسية وتقنية المعلومات - ${post.title}`}>
+        <meta name="description" content={`اقرأ المزيد عن: ${post.desc}. تفاصيل حول آخر المستجدات والفعاليات في المركز`} />
+      </Head>
       <div className="min-h-screen bg-gray-50 pb-16" dir="rtl">
         <PageHeader title={post.title} />
 

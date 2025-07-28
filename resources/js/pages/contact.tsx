@@ -9,6 +9,7 @@ import { toast } from 'sonner';
 import PageHeaderImage from "@/components/page-header"
 import { Breadcrumbs } from "@/components/breadcrumbs"
 import { BreadcrumbItem } from "@/types"
+import { Head } from '@inertiajs/react';
 
 const breadcrumbs: BreadcrumbItem[] = [
   {
@@ -47,6 +48,9 @@ export default function ContactPage() {
 
   return (
     <GuestLayout>
+      <Head title={"اتصل بنا - مركز البحوث الهندسية وتقنية المعلومات"}>
+        <meta name="description" content={"تواصل معنا للاستفسارات، الشراكات، أو أي معلومات أخرى. نحن هنا لخدمتك."} />
+      </Head>
       <div className="min-h-screen bg-gray-50" dir="rtl">
         <PageHeaderImage
           title="اتصل بنا"

@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardTitle } from "@/components/ui/card"
 import GuestLayout from "@/layouts/guest-layout"
 import { BreadcrumbItem } from "@/types";
+import { Head } from "@inertiajs/react";
 
 const breadcrumbs: BreadcrumbItem[] = [
   {
@@ -70,6 +71,9 @@ export default function PartnersPage() {
 
   return (
     <GuestLayout>
+      <Head title={'شركاؤنا - مركز البحوث الهندسية وتقنية المعلومات'}>
+        <meta name="description" content={"تعرف على شركائنا الاستراتيجيين الذين يدعمون رؤيتنا في الابتكار والبحث العلمي."} />
+      </Head>
 
       <div className="min-h-screen bg-white" dir="rtl">
         <PageHeaderImage

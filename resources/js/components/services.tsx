@@ -1,6 +1,6 @@
 import { BookOpen, ChartPie, ChevronLeft, GraduationCap, Microscope } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import SectionHeader from './section-header'
 
 const tabs = [
@@ -35,7 +35,7 @@ const tabs = [
 ]
 
 export default function Services() {
-  const [tab, setTab] = useState(1)
+  const [tab, setTab] = useState(0)
 
   return (
 
@@ -47,7 +47,7 @@ export default function Services() {
       <div className="grid md:grid-cols-1 px-4 container mx-auto mt-12 px-4 md:px-16 lg:grid-cols-3 gap-8">
         <div className="col-span-1 gap-4">
           {tabs.map(({ Sicon, ...t }, i) => (
-            <>
+            <React.Fragment key={t.id}>
               <div onClick={() => setTab(i)} className="flex relative overflow-hidden flex-row justify-between items-center px-8 py-4 bg-white shadow-sm mb-8 group" key={t.id}>
                 <div className={cn("absolute w-full h-full text-white bg-gradient-to-t inset-0 from-primary to-primary/50 transition-all duration-300 translate-y-full group-hover:translate-y-0", tab === i ? "translate-y-0" : "translate-y-full")} />
                 <div className="flex flex-row gap-2 items-center">
@@ -63,7 +63,7 @@ export default function Services() {
                   </div>
                 )}
               </div>
-            </>
+            </React.Fragment>
           ))}
         </div>
         <div className="col-span-2 hidden md:block max-w-2xl w-full mx-auto gap-8 flex flex-col">

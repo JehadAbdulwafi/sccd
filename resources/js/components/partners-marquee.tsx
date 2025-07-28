@@ -46,6 +46,7 @@ export default function PartnersMarquee() {
             <img
               src={logo.src}
               alt={logo.alt}
+              key={index}
               className="h-16 w-16 md:h-24 md:w-24 object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
             />
           ))}

@@ -6,104 +6,30 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContactMessageController;
+use App\Http\Controllers\NewsletterController;
+use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\PublicationController;
-use App\Models\Event;
-use App\Models\JournalArticle;
-use App\Models\JournalIssue;
-use App\Models\Post;
-use App\Models\Publication;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::get('/', function () {
-  $issues = JournalIssue::withCount([
-    'articles as total_articles'
-  ]);
+use App\Http\Controllers\SitemapController;
+use App\Http\Controllers\WebsiteController;
 
-  $articles = JournalArticle::addSelect([
-    'journal_issue_title' => JournalIssue::select('title')
-      ->whereColumn('journal_issues.id', 'journal_issue_id')
-  ])->latest()->take(10)->get();
+Route::get('/sitemap.xml', [SitemapController::class, 'generate']);
 
-  $posts = Post::latest()->take(10)->get();
-  $events = Event::latest()->take(10)->get();
-  $publications = Publication::latest()->take(10)->get();
-
-  return Inertia::render('home', [
-    'issues' => $issues->get(),
-    'articles' => $articles,
-    'posts' => $posts,
-    'events' => $events,
-    'publications' => $publications
-  ]);
-})->name('home');
-
-Route::get('/about', function () {
-  return Inertia::render('about');
-})->name('about');
-
-Route::get('/contact', function () {
-  return Inertia::render('contact');
-})->name('contact');
-
-Route::get('/publications', function () {
-  $publications = Publication::get();
-  return Inertia::render('publications', [
-    'publications' => $publications
-  ]);
-})->name('publications');
-
-Route::get('/publications/{publication}', function (Publication $publication) {
-  return Inertia::render('publication', [
-    'publication' => $publication
-  ]);
-})->name('publication');
+Route::get('/', [WebsiteController::class, 'home'])->name('home');
+Route::get('/about', [WebsiteController::class, 'about'])->name('about');
+Route::get('/contact', [WebsiteController::class, 'contact'])->name('contact');
+Route::get('/partners', [WebsiteController::class, 'partners'])->name('partners');
+Route::get('/journal', [WebsiteController::class, 'journal'])->name('journal');
+Route::get('/journal/{issue}', [WebsiteController::class, 'issue'])->name('journal.issue');
+Route::get('/publications', [WebsiteController::class, 'publications'])->name('publications');
+Route::get('/publications/{publication}', [WebsiteController::class, 'publication'])->name('publication');
+Route::get('/news', [WebsiteController::class, 'posts'])->name('news');
+Route::get('/news/{post}', [WebsiteController::class, 'post'])->name('news-details');
 
 Route::post('/contact', [ContactMessageController::class, 'store'])->name('contact.store');
 Route::post('/newsletter-subscribe', [App\Http\Controllers\NewsletterSubscriptionController::class, 'store'])->name('newsletter.subscribe');
-
-Route::get('/partners', function () {
-  return Inertia::render('partners');
-})->name('partners');
-
-Route::get('/structure', function () {
-  return Inertia::render('structure');
-})->name('structure');
-
-Route::get('/research', function () {
-  return Inertia::render('research');
-})->name('research');
-
-Route::get('/journal', function () {
-  $issues = JournalIssue::withCount([
-    'articles as total_articles'
-  ])->get();
-  return Inertia::render('journal', [
-    'issues' => $issues
-  ]);
-})->name('journal');
-
-Route::get('/journal/{issue}', function (JournalIssue $issue) {
-  $articles = JournalArticle::where('journal_issue_id', $issue->id)
-    ->get();
-  return Inertia::render('issue', [
-    'articles' => $articles,
-    'issue' => $issue
-  ]);
-})->name('journal.issue');
-
-Route::get('/news', function () {
-  $posts = Post::get();
-  return Inertia::render('news', [
-    'posts' => $posts
-  ]);
-})->name('news');
-
-Route::get('/news/{post}', function (Post $post) {
-  return Inertia::render('news-details', [
-    'post' => $post
-  ]);
-})->name('news-details');
 
 Route::middleware(['auth', 'verified'])->group(function () {
   Route::get('dashboard', function () {
@@ -142,13 +68,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
   Route::get('dashboard/users/{user}/edit', [UserController::class, 'edit'])->name('dashboard.users.edit');
   Route::post('api/users/bulk-actions', [UserController::class, 'bulkActions'])->name('api.users.bulk-actions');
 
-  Route::get('dashboard/partners/list', [App\Http\Controllers\PartnerController::class, 'index'])->name('dashboard.partners.list');
-  Route::get('dashboard/partners/create', [App\Http\Controllers\PartnerController::class, 'create'])->name('dashboard.partners.create');
-  Route::get('dashboard/partners/{partner}/edit', [App\Http\Controllers\PartnerController::class, 'edit'])->name('dashboard.partners.edit');
-  Route::post('api/partners', [App\Http\Controllers\PartnerController::class, 'store'])->name('api.partners.store');
-  Route::put('api/partners/{partner}', [App\Http\Controllers\PartnerController::class, 'update'])->name('api.partners.update');
-  Route::delete('api/partners/{partner}', [App\Http\Controllers\PartnerController::class, 'destroy'])->name('api.partners.destroy');
-  Route::post('api/partners/bulk-actions', [App\Http\Controllers\PartnerController::class, 'bulkActions'])->name('api.partners.bulk-actions');
+  Route::get('dashboard/partners/list', [PartnerController::class, 'index'])->name('dashboard.partners.list');
+  Route::get('dashboard/partners/create', [PartnerController::class, 'create'])->name('dashboard.partners.create');
+  Route::get('dashboard/partners/{partner}/edit', [PartnerController::class, 'edit'])->name('dashboard.partners.edit');
+  Route::post('api/partners', [PartnerController::class, 'store'])->name('api.partners.store');
+  Route::put('api/partners/{partner}', [PartnerController::class, 'update'])->name('api.partners.update');
+  Route::delete('api/partners/{partner}', [PartnerController::class, 'destroy'])->name('api.partners.destroy');
+  Route::post('api/partners/bulk-actions', [PartnerController::class, 'bulkActions'])->name('api.partners.bulk-actions');
 
   Route::get('dashboard/messages/list', [ContactMessageController::class, 'index'])->name('dashboard.messages.list');
   Route::get('dashboard/messages/{contactMessage}', [ContactMessageController::class, 'show'])->name('dashboard.messages.show');
@@ -171,8 +97,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
   Route::get('dashboard/publications/create', [PublicationController::class, 'create'])->name('dashboard.publications.create');
   Route::get('dashboard/publications/{publication}/edit', [PublicationController::class, 'edit'])->name('dashboard.publications.edit');
 
-  Route::get('dashboard/newsletter', [App\Http\Controllers\NewsletterController::class, 'index'])->name('dashboard.newsletter.index');
-  Route::post('dashboard/newsletter/send', [App\Http\Controllers\NewsletterController::class, 'send'])->name('dashboard.newsletter.send');
+  Route::get('dashboard/newsletter', [NewsletterController::class, 'index'])->name('dashboard.newsletter.index');
+  Route::post('dashboard/newsletter/send', [NewsletterController::class, 'send'])->name('dashboard.newsletter.send');
 });
 
 require __DIR__ . '/settings.php';

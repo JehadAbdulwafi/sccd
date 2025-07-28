@@ -34,17 +34,14 @@ export default function Footer() {
                   <Link href="/journal" className="hover:text-primary">
                     المجلة العلمية
                   </Link>
-                  <Link href="/research" className="hover:text-primary">
+                  <Link href="/publications" className="hover:text-primary">
                     البحوث والمنشورات
                   </Link>
                   <Link href="/news" className="hover:text-primary">
                     الأخبار والأحداث
                   </Link>
-                  <Link href="/journal" className="hover:text-primary">
-                    الهيكل التنظيمي
-                  </Link>
-                  <Link href="/journal" className="hover:text-primary">
-                    حول المركز
+                  <Link href="/partners" className="hover:text-primary">
+                    الشركاء
                   </Link>
                   <Link href="/contact" className="hover:text-primary">
                     اتصل بنا

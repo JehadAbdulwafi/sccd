@@ -1,5 +1,5 @@
 import GuestLayout from "@/layouts/guest-layout"
-import { usePage } from "@inertiajs/react"
+import { Head, usePage } from "@inertiajs/react"
 import { JournalCardWorks } from "@/components/journal-card"
 import PageHeaderImage from "@/components/page-header"
 import { Breadcrumbs } from "@/components/breadcrumbs"
@@ -21,6 +21,9 @@ export default function JournalPage() {
 
   return (
     <GuestLayout>
+      <Head title={"المجلة العلمية - مركز البحوث الهندسية وتقنية المعلومات"}>
+        <meta name="description" content={"تصفح أعداد مجلتنا العلمية المحكمة، التي تضم أحدث الأبحاث والمقالات في مجالات الهندسة وتقنية المعلومات."} />
+      </Head>
       <div className="min-h-screen bg-gray-50" dir="rtl">
         {/* Header */}
         <PageHeaderImage
