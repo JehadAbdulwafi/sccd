@@ -101,7 +101,7 @@ export default function Newsletter() {
             </Button>
           </form>
         </div>
-        <div className="grid w-full">
+        <div className="grid w-full overflow-x-auto">
           <DataTable
             columns={columns}
             data={sentNewsletters}

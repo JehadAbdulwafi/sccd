@@ -179,7 +179,7 @@ export default function MessagesListPage() {
       <Head title="الرسائل" />
 
       <div className="flex h-full flex-1 flex-col gap-4 p-4">
-        <div className="grid w-full">
+        <div className="grid w-full overflow-x-auto">
           <DataTable
             columns={columns}
             data={contactMessages}
