@@ -7,6 +7,17 @@
     }
   },
   "routes": [
+    { "src": "/favicon.ico", "dest": "/public/favicon.ico" },
+    { "src": "/favicon.svg", "dest": "/public/favicon.svg" },
+    { "src": "/apple-touch-icon.png", "dest": "/public/apple-touch-icon.png" },
+    { "src": "/android-chrome-192x192.png", "dest": "/public/android-chrome-192x192.png" },
+    { "src": "/android-chrome-512x512.png", "dest": "/public/android-chrome-512x512.png" },
+    { "src": "/favicon-16x16.png", "dest": "/public/favicon-16x16.png" },
+    { "src": "/favicon-32x32.png", "dest": "/public/favicon-32x32.png" },
+    { "src": "/logo.svg", "dest": "/public/logo.svg" },
+    { "src": "/map-preview.png", "dest": "/public/map-preview.png" },
+    { "src": "/placeholder.svg", "dest": "/public/placeholder.svg" },
+    { "src": "/robots.txt", "dest": "/public/robots.txt" },
     { "src": "/images/(.*)", "dest": "/public/images/$1" },
     { "src": "/build/(.*)", "dest": "/public/build/$1" },
     { "src": "/background/(.*)", "dest": "/public/background/$1" },
