@@ -41,7 +41,7 @@ export default function EditPartnerPage() {
     e.preventDefault();
     e.stopPropagation();
 
-    form.post(route('api.partners.update', partner.id), {
+    form.post(route('dashboard.partners.update', partner.id), {
       preserveScroll: true,
       onError: (errors) => {
         toast.error('الرجاء إصلاح أخطاء التحقق');

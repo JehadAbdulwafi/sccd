@@ -34,10 +34,7 @@ class PostController extends Controller
   {
     $data = $request->validated();
 
-    if ($request->hasFile('image')) {
-      $path = $request->file('image')->store('posts', 'public');
-      $data['image'] = asset('storage/' . $path);
-    }
+    \Illuminate\Support\Facades\Log::info('Creating post with data:', $data);
 
     Post::create($data);
 
@@ -56,11 +53,13 @@ class PostController extends Controller
   {
     $data = $request->validated();
 
-    if ($request->hasFile('image')) {
-      $path = $request->file('image')->store('posts', 'public');
-      $data['image'] = asset('storage/' . $path);
-    } else if (empty($data['image'])) {
-      $data['image'] = $post->image;
+    // Explicitly handle the 'image' field
+    if ($request->has('image')) { // Check if 'image' key exists in the request
+        $data['image'] = $request->input('image'); // Assign the value (which can be null or a URL)
+    } else {
+        // If 'image' key is not present in the request, it means no change was intended for the image.
+        // In this case, we should retain the existing image.
+        $data['image'] = $post->image;
     }
 
     $post->update($data);
@@ -89,3 +88,4 @@ class PostController extends Controller
     }
   }
 }
+

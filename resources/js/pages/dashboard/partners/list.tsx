@@ -46,7 +46,7 @@ export default function PartnersListPage() {
     if (!deleteDialog.item || deleteDialog.loading) return;
 
     try {
-      router.delete(`/api/partners/${deleteDialog.item.id}`);
+      router.delete(`/dashboard/partners/${deleteDialog.item.id}`);
     } catch (error) {
       console.error(error);
     } finally {
@@ -149,7 +149,7 @@ export default function PartnersListPage() {
         };
 
         router
-          .post('/api/partners/bulk-actions', payload, {
+          .post('/dashboard/partners/bulk-actions', payload, {
             onError: (errors) => {
               toast.error('فشلت العملية');
               console.error('Error:', errors);

@@ -4,10 +4,8 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel"
-import { Card, CardContent } from "./ui/card"
 import { useEffect, useState } from "react"
 import { cn } from "@/lib/utils"
-import { Button } from "./ui/button"
 import { Link } from "@inertiajs/react"
 import { ArrowLeft } from "lucide-react"
 

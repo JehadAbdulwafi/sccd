@@ -2,7 +2,6 @@ import { Partner } from '@/types'
 import SectionHeader from './section-header'
 
 export default function MembershipSection({ partners }: { partners: Partner[] }) {
-  console.log(partners)
   return (
     <section className={"py-10 bg-gray-100"}>
       <SectionHeader

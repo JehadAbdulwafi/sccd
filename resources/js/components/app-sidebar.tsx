@@ -3,8 +3,7 @@ import { NavUser } from '@/components/nav-user';
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
-import { Calendar, Handshake, LayoutGrid, Mail, MessageCircle, Newspaper, NotebookText, UsersRound, FileText, HelpCircle } from 'lucide-react';
-import AppLogo from './app-logo';
+import { Handshake, LayoutGrid, Mail, MessageCircle, Newspaper, UsersRound, FileText, HelpCircle } from 'lucide-react';
 import AppLogoIcon from './app-logo-icon';
 
 const mainNavItems: NavItem[] = [
@@ -39,6 +38,11 @@ const mainNavItems: NavItem[] = [
     icon: Mail,
   },
   {
+    title: 'الأسئلة الشائعة',
+    href: '/dashboard/faqs',
+    icon: HelpCircle,
+  },
+  {
     title: 'شروط الاستخدام',
     href: '/dashboard/pages/terms',
     icon: FileText,
@@ -47,11 +51,6 @@ const mainNavItems: NavItem[] = [
     title: 'سياسة الخصوصية',
     href: '/dashboard/pages/policies',
     icon: FileText,
-  },
-  {
-    title: 'الأسئلة الشائعة',
-    href: '/dashboard/faqs',
-    icon: HelpCircle,
   },
 ];
 

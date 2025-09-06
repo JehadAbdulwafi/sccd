@@ -38,7 +38,7 @@ export default function PostsListPage() {
     if (!deleteDialog.item || deleteDialog.loading) return;
 
     try {
-      router.delete(`/api/posts/${deleteDialog.item.id}`);
+      router.delete(`/dashboard/posts/${deleteDialog.item.id}`);
     } catch (error) {
       console.error(error);
     } finally {
@@ -125,7 +125,7 @@ export default function PostsListPage() {
         };
 
         router
-          .post('/api/posts/bulk-actions', payload, {
+          .post('/dashboard/posts/bulk-actions', payload, {
             onError: (errors) => {
               toast.error('فشلت العملية');
               console.error('Error:', errors);

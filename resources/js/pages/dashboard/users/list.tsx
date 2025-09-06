@@ -46,7 +46,7 @@ export default function UsersListPage() {
     if (!deleteDialog.item || deleteDialog.loading) return;
 
     try {
-      router.delete(`/api/users/${deleteDialog.item.id}`);
+      router.delete(`/dashboard/users/${deleteDialog.item.id}`);
     } catch (error) {
       console.error(error);
     } finally {
@@ -137,7 +137,7 @@ export default function UsersListPage() {
         };
 
         router
-          .post('/api/users/bulk-actions', payload, {
+          .post('/dashboard/users/bulk-actions', payload, {
             onError: (errors) => {
               toast.error('فشلت العملية');
               console.error('Error:', errors);

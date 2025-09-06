@@ -7,6 +7,10 @@
     }
   },
   "routes": [
+    { "src": "/build/(.*)", "dest": "/public/build/$1" },
+    { "src": "/images/(.*)", "dest": "/public/images/$1" },
+    { "src": "/background/(.*)", "dest": "/public/background/$1" },
+    { "src": "/storage/(.*)", "dest": "/public/storage/$1" },
     { "src": "/favicon.ico", "dest": "/public/favicon.ico" },
     { "src": "/apple-touch-icon.png", "dest": "/public/apple-touch-icon.png" },
     { "src": "/android-chrome-192x192.png", "dest": "/public/android-chrome-192x192.png" },
@@ -16,9 +20,7 @@
     { "src": "/logo.png", "dest": "/public/logo.png" },
     { "src": "/placeholder.svg", "dest": "/public/placeholder.svg" },
     { "src": "/robots.txt", "dest": "/public/robots.txt" },
-    { "src": "/images/(.*)", "dest": "/public/images/$1" },
-    { "src": "/build/(.*)", "dest": "/public/build/$1" },
-    { "src": "/background/(.*)", "dest": "/public/background/$1" },
+    { "src": "/api/(.*)", "dest": "/api/index.php" },
     { "src": "/(.*)",  "dest": "/api/index.php" }
   ],
   "env": {

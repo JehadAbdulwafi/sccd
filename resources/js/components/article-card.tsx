@@ -5,7 +5,6 @@ import { format } from 'date-fns'
 import { arEG } from 'date-fns/locale'
 
 export default function ArticleCard({ article }: { article: JournalArticle }) {
-  console.log(article)
   const authors: { key: string; value: string }[] = article.authors ? (typeof article.authors === 'string' ? JSON.parse(article.authors) : article.authors) : []
   return (
     <Card className="hover:shadow-lg transition-shadow">

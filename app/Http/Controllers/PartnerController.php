@@ -34,10 +34,10 @@ class PartnerController extends Controller
   {
     $data = $request->validated();
 
-    if ($request->hasFile('logo')) {
-      $path = $request->file('logo')->store('partners', 'public');
-      $data['logo'] = asset('storage/' . $path);
-    }
+    // if ($request->hasFile('logo')) {
+    //   $path = $request->file('logo')->store('partners', 'public');
+    //   $data['logo'] = asset('storage/' . $path);
+    // }
 
     Partner::create($data);
 
@@ -48,12 +48,12 @@ class PartnerController extends Controller
   {
     $data = $request->validated();
 
-    if ($request->hasFile('logo')) {
-      $path = $request->file('logo')->store('partners', 'public');
-      $data['logo'] = asset('storage/' . $path);
-    } else if (empty($data['logo'])) {
-      $data['logo'] = null;
-    }
+    // if ($request->hasFile('logo')) {
+    //   $path = $request->file('logo')->store('partners', 'public');
+    //   $data['logo'] = asset('storage/' . $path);
+    // } else if (empty($data['logo'])) {
+    //   $data['logo'] = null;
+    // }
 
     $partner->update($data);
 

@@ -41,7 +41,7 @@ export default function CreateUserPage() {
       return;
     }
 
-    form.post('/api/users', {
+    form.post('/dashboard/users', {
       preserveScroll: true,
       onError: (errors) => {
         toast.error('الرجاء إصلاح أخطاء التحقق');

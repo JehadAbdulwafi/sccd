@@ -38,7 +38,7 @@ export default function CreatePartnerPage() {
     e.preventDefault();
     e.stopPropagation();
 
-    form.post('/api/partners', {
+    form.post('/dashboard/partners', {
       preserveScroll: true,
       onError: (errors) => {
         toast.error('الرجاء إصلاح أخطاء التحقق');

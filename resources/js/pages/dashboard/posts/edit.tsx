@@ -47,17 +47,15 @@ export default function EditPostPage() {
       return;
     }
 
-    console.log("Form data", form.data)
-
     form.transform((data) => ({
       title: data.title,
       desc: data.desc,
       content: data.content,
-      // image: typeof data.image === 'object' ? data.image : null,
+      image: data.image,
       _method: 'PUT',
     }));
 
-    form.post(`/api/posts/${post.id}`, {
+    form.post(`/dashboard/posts/${post.id}`, {
       preserveScroll: true,
       onError: (errors) => {
         form.clearErrors();
@@ -77,7 +75,6 @@ export default function EditPostPage() {
   };
 
   const validateForm = () => {
-    console.log("calling validtation")
     let isValid = true;
     form.clearErrors();
 
@@ -164,5 +161,6 @@ export default function EditPostPage() {
     </AppLayout>
   );
 }
+
 
 

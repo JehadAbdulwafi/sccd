@@ -46,9 +46,7 @@ export default function CreatePostPage() {
       return;
     }
 
-    console.log("Form data", form.data)
-
-    form.post('/api/posts', {
+    form.post('/dashboard/posts', {
       preserveScroll: true,
       onError: (errors) => {
         form.clearErrors();
@@ -68,7 +66,6 @@ export default function CreatePostPage() {
   };
 
   const validateForm = () => {
-    console.log("calling validtation")
     let isValid = true;
     form.clearErrors();
 

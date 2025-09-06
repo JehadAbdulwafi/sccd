@@ -49,7 +49,7 @@ export default function MessagesListPage() {
     if (!deleteDialog.item || deleteDialog.loading) return;
 
     try {
-      router.delete(`/api/contact-messages/${deleteDialog.item.id}`);
+      router.delete(`/dashboard/contact-messages/${deleteDialog.item.id}`);
     } catch (error) {
       console.error(error);
     } finally {
@@ -156,7 +156,7 @@ export default function MessagesListPage() {
         };
 
         router
-          .post('/api/contact-messages/bulk-actions', payload, {
+          .post('/dashboard/contact-messages/bulk-actions', payload, {
             onError: (errors) => {
               toast.error('Operation failed');
               console.error('Error:', errors);
