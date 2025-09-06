@@ -12,7 +12,7 @@ export const uploadImageToSupabase = async (
 
   try {
     const { data, error } = await supabase.storage
-      .from("eitrc")
+      .from("sccd")
       .upload(`public/${file.name}`, file, {
         contentType: file.type,
         upsert: true,
@@ -22,7 +22,7 @@ export const uploadImageToSupabase = async (
       throw error;
     }
 
-    return `https://ckgszyltixlibelbhtuq.supabase.co/storage/v1/object/public/${data.fullPath}`;
+    return `${supabaseUrl}/storage/v1/object/public/${data.fullPath}`;
   } catch (error) {
     console.error("Error uploading file:", error);
   }

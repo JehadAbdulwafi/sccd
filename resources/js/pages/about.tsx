@@ -3,8 +3,8 @@ import PageHeaderImage from "@/components/page-header"
 import GuestLayout from "@/layouts/guest-layout"
 import { cn } from "@/lib/utils"
 import { BreadcrumbItem } from "@/types";
-import { BookOpen, ChartPie, GraduationCap, Microscope } from "lucide-react"
 import { Head } from '@inertiajs/react';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 
 const breadcrumbs: BreadcrumbItem[] = [
@@ -13,31 +13,8 @@ const breadcrumbs: BreadcrumbItem[] = [
     href: '/',
   },
   {
-    title: 'حول المركز',
+    title: 'من نحن',
     href: '/about',
-  },
-];
-
-const tabs = [
-  {
-    id: 1,
-    title: "الإسهام في تنمية القدرة التنافسية لطلاب، وطالبات الجامعات، ومؤسسات التعليم العالي في سوق العمل من خلال البحوث والابتكارات",
-    Sicon: GraduationCap
-  },
-  {
-    id: 2,
-    title: "تنمية القدرة البحثية للموارد البشرية _ كمًّا ونوعًا_  لتحقيق درجات عالية من الجودة ،والتميز المستقبلي للبحث العلمي، وخدمة المجتمع.",
-    Sicon: Microscope,
-  },
-  {
-    id: 3,
-    title: "التوسع في تحقيق التنمية الاقتصادية بما يفي بمتطلبات التنمية المستدامة للبيئة المحلية، وتوجيه البحث العلمي وفق الأوليات التنموية والبحوث البيئية، وتنويع مصادر البحث العلمي",
-    Sicon: ChartPie,
-  },
-  {
-    id: 4,
-    title: "لعمل على إعداد، وإقامة دورات تدريبية متخصصة في مجال عمل المركز، وفق نظام الدورات التدريبية والشهادات المعتمدة، ودعم مؤسسات التعليم العالي والبحث العلمي",
-    Sicon: BookOpen,
   },
 ];
 
@@ -86,30 +63,74 @@ const team = [
   },
 ]
 
+const Goals = [
+  {
+    title: "الأهداف الاجتماعية والاقتصادية",
+    points: [
+      "تحسين مستوى المعيشة للأشخاص ذوي الإعاقة",
+      "توفير فرص عمل مناسبة وتسهيل اندماجهم في سوق العمل",
+      "دعم المشاريع الصغيرة والمتوسطة الموجهة لذوي الإعاقة",
+    ],
+  },
+  {
+    title: "الأهداف التعليمية والثقافية",
+    points: [
+      "ضمان وصول ذوي الإعاقة إلى فرص التعليم بمختلف مراحله",
+      "تطوير المناهج بما يتناسب مع احتياجاتهم",
+      "نشر الوعي الثقافي وتعزيز المشاركة المجتمعية",
+    ],
+  },
+  {
+    title: "الأهداف الصحية وإعادة التأهيل",
+    points: [
+      "توفير خدمات صحية متكاملة لذوي الإعاقة",
+      "تطوير مراكز إعادة التأهيل وتزويدها بالتجهيزات اللازمة",
+      "دعم برامج الصحة النفسية والاجتماعية",
+    ],
+  },
+  {
+    title: "الأهداف القانونية والحقوقية",
+    points: [
+      "تعزيز القوانين التي تحمي حقوق ذوي الإعاقة",
+      "مراقبة تطبيق التشريعات المحلية والدولية",
+      "ضمان المساواة وعدم التمييز",
+    ],
+  },
+  {
+    title: "الأهداف الدولية والتعاون الخارجي",
+    points: [
+      "تعزيز التعاون مع المنظمات الدولية والإقليمية",
+      "المشاركة في المؤتمرات والمعارض العالمية",
+      "تبادل الخبرات والتجارب الناجحة",
+    ],
+  },
+];
+
 export default function AboutPage() {
   return (
     <GuestLayout>
-      <Head title={"من نحن - مركز البحوث الهندسية وتقنية المعلومات"}>
-        <meta name="description" content={"تعرف على مركز البحوث الهندسية وتقنية المعلومات، رؤيتنا، رسالتنا، وأهدافنا في قيادة الابتكار والتقدم التكنولوجي."} />
+      <Head title={"من نحن - اللجنة العليا للمعاقين"}>
+        <meta name="description" content={"تعرف على اللجنة العليا للمعاقين، رؤيتنا، رسالتنا، وأهدافنا في تمكين الأشخاص ذوي الإعاقة."} />
       </Head>
       <div className="min-h-screen bg-gray-50" dir="rtl">
         <PageHeaderImage
-          title="حول المركز"
+          title="من نحن"
           description="تعرف على رؤيتنا ورسالتنا والأهداف التي نسعى لتحقيقها"
         />
 
-        <nav className="container mx-auto py-4  px-4 text-sm text-gray-600">
+        <nav className="container mx-auto py-4 px-4 md:px-16 text-sm text-gray-600">
           <Breadcrumbs breadcrumbs={breadcrumbs} />
         </nav>
 
-        <div className="container mx-auto px-4 py-4 md:py-16">
+        <div className="container mx-auto p-4 md:p-16">
           <div className="text-lg md:text-xl font-light mb-4 max-w-7xl mx-auto mb-12">
-            أُنشئ المركز بموجب قرار المجلس الرئاسي لحكومة الوفاق رقم (477 ) لسنة2017م، ومقره مدينة بني وليد، ويتولى المركز إجراء البحوث، والدراسات، والاستشارات العلمية، والفنية بجميع أنواعها في مجال تقنيات الإنتاج، والصيانة الميكانيكية، للقطاعين العام والخاص، وذوي العلاقة بنشاط المركز، ويسعى إلى تقديم خدمة بحثية مميزة تخدم البيئة الأكاديمية، من أجل الإسهام في تحقيق درجة عالية من الجودة والاعتماد؛ وفق المتطلبات الوطنية والعالمية.
+            أُنشئت اللجنة العليا لرعاية المعاقين في ليبيا بموجب أحكام القوانين والتشريعات الوطنية ذات العلاقة، باعتبارها مؤسسة مجتمع مدني مستقلة، مقرها مدينة طرابلس، وتتولى اللجنة مهام دعم ورعاية الأشخاص ذوي الإعاقة بجميع فئاتهم، من خلال وضع السياسات والبرامج، وتقديم الخدمات الاجتماعية والنفسية واللوجستية، فضلاً عن الإشراف على عمليات التوعية، والتثقيف، والرصد لحقوقهم التي كفلتها القوانين الوطنية والاتفاقيات الدولية. وتسعى اللجنة إلى بناء شراكات مع مؤسسات الدولة والمجتمع المدني، وتعزيز قدرات العاملين في هذا المجال عبر التدريب والتأهيل، بما يضمن تحقيق حياة كريمة للأشخاص ذوي الإعاقة في جميع مناطق ليبيا، وفق متطلبات الجودة والمعايير الإنسانية المعتمدة محليًا ودوليًا.
           </div>
           <div className="grid lg:grid-cols-2 gap-8">
+            {/* Vision */}
             <div className="shadow-[3px_2px_33px_4px_rgba(0,_0,_0,_0.1)] transition-shadow">
               <img
-                src="https://images.unsplash.com/photo-1752606402425-fa8ed3166a91?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src="/images/vision.jpg"
                 className="w-full h-96 object-cover"
               />
               <div className="p-6">
@@ -117,15 +138,15 @@ export default function AboutPage() {
                   رسالتنا
                 </div>
                 <p className="text-zinc-600 leading-relaxed">
-                  نلتزم بإجراء بحوث علمية متقدمة في مجال الهندسة وتقنية المعلومات، وتطوير حلول مبتكرة تخدم المجتمع والصناعة، وإعداد كوادر متخصصة قادرة على مواكبة التطورات التقنية.
+                  تحقيق حياة كريمة وشاملة لذوي الإعاقة في مجتمع مستقر، يضمن لهم فرصًا متكافئة في التعليم والعمل والمشاركة المجتمعية.
                 </p>
               </div>
             </div>
 
-            {/* Vision */}
+            {/* Mission */}
             <div className="shadow-[3px_2px_33px_4px_rgba(0,_0,_0,_0.1)] transition-shadow">
               <img
-                src="https://plus.unsplash.com/premium_photo-1753089574948-9a9a358bc575?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src="/images/goal.webp"
                 className="w-full h-96 object-cover"
               />
               <div className="p-6">
@@ -133,8 +154,7 @@ export default function AboutPage() {
                   رؤيتنا
                 </div>
                 <p className="text-zinc-600 leading-relaxed">
-                  أن نكون مركزاً رائداً في البحوث الهندسية وتقنية المعلومات على المستوى الإقليمي والعالمي، ونساهم في بناء
-                  مجتمع المعرفة من خلال الابتكار والتميز البحثي.
+                  نشر التوعية المجتمعية وتمكين الأشخاص ذوي الإعاقة من التمتع بجميع حقوقهم الإنسانية، مع توفير بيئة داعمة تعزز قدراتهم وتساعدهم على الاندماج الفعّال.
                 </p>
               </div>
             </div>
@@ -142,20 +162,30 @@ export default function AboutPage() {
 
           {/* Objectives */}
           <div className="mt-16">
-            <h2 className="text-3xl md:text-5xl font-light mb-8">أهدافنا الاستراتيجية</h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              {tabs.map(({ Sicon, ...t }, i) => (
-                <div className="flex relative overflow-hidden flex-row justify-between items-center px-8 py-4 bg-white shadow-[3px_2px_33px_4px_rgba(0,_0,_0,_0.1)] mb-8 group" key={t.id}>
-                  <div className="flex flex-col gap-2 items-start">
-                    {<Sicon className={cn("h-20 w-20 md:h-28 md:w-28 stroke-1 text-primary z-10", "")} />}
-                    <h2 className={cn("text-lg text-zinc-700 z-10", "")}>{t.title}</h2>
-                  </div>
-                </div>
-              ))}
+            <h2 className="text-3xl md:text-5xl font-light mb-8">أهدافنا</h2>
+            <div className="gap-8">
+              <Accordion
+                type="single"
+                className="w-full flex flex-col gap-5"
+                defaultValue="item-0"
+              >
+                {Goals.map((goal, index) => (
+                  <AccordionItem key={index} value={`item-${index}`}>
+                    <AccordionTrigger className="text-right">{goal.title}</AccordionTrigger>
+                    <AccordionContent>
+                      <ul className="list-disc pr-6 text-right space-y-2">
+                        {goal.points.map((point, i) => (
+                          <li key={i}>{point}</li>
+                        ))}
+                      </ul>
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
             </div>
           </div>
           <div className="mt-16">
-            <h2 className="text-3xl md:text-5xl font-light mb-12">أعضاء المركز</h2>
+            <h2 className="text-3xl md:text-5xl font-light mb-12">أعضاء اللجنة</h2>
             <div className="grid md:grid-cols-2 gap-6 md:gap-12">
               {team.map((member, i) => (
                 <div className={cn("bg-white shadow-[3px_2px_33px_4px_rgba(0,_0,_0,_0.1)] w-full gap-3 md:gap-8 flex flex-col md:flex-row md:max-h-64 relative p-4 md:p-10 md:mt-24", "col-span-1")} key={member.id}>

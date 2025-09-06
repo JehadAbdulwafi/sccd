@@ -7,8 +7,8 @@ import {
 import { useState } from "react"
 import { Button } from "./ui/button"
 import { ArrowLeft, ArrowRight } from "lucide-react"
-import { Link, usePage } from "@inertiajs/react"
-import { NewsCardHome } from "./news-card"
+import { usePage } from "@inertiajs/react"
+import NewsCard from "./news-card"
 import SectionHeader from "./section-header"
 
 export default function NewsCarousel() {
@@ -16,28 +16,26 @@ export default function NewsCarousel() {
   const [api, setApi] = useState<CarouselApi>()
 
   return (
-    <section className={"py-10 bg-white"}>
+    <section className={"py-10 bg-gray-100"}>
       <SectionHeader
-        title="الأخبار والمنشورات"
-        desc="ابق على اطلاع بأحدث الاخبار والمنشورات التي تقدم رؤى مبنية على البيانات في عدة قطاعات لمواجهة التحديات المعاصرة في مجالي الطاقة والسياسات."
+        title="أخبار اللجنة"
+        desc="ابق على اطلاع بأحدث الاخبار والمنشورات التي تقدم رؤى مبنية على البيانات في عدة قطاعات لمواجهة التحديات."
         href="/news"
       />
       <div className="select-none py-4 px-4 md:px-0 mx-auto" dir="rtl">
         <Carousel
-          className=""
+          className="gap-2 w-full items-center p-0!"
           opts={{
             direction: "rtl",
-            align: "center",
-            dragFree: false,
-            loop: true,
+            dragFree: true,
           }}
           setApi={setApi}
         >
           {posts.length > 0 && (
-            <CarouselContent dir="rtl" className="">
+            <CarouselContent dir="rtl" className="flex flex-row container px-4 md:px-16 mx-auto">
               {posts.map((item) => (
-                <CarouselItem dir="rtl" key={item.id} className="py-4 md:basis-1/2">
-                  <NewsCardHome item={item} />
+                <CarouselItem dir="rtl" key={item.id} className="lg:basis-1/3 py-4">
+                  <NewsCard item={item} />
                 </CarouselItem>
               ))}
             </CarouselContent>

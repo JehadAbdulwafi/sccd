@@ -21,21 +21,21 @@ export default function NewsPage() {
 
   return (
     <GuestLayout>
-      <Head title={"الأخبار - مركز البحوث الهندسية وتقنية المعلومات"}>
-        <meta name="description" content={"ابق على اطلاع بآخر أخبارنا، فعالياتنا، وإنجازاتنا في مجال البحوث الهندسية وتقنية المعلومات."} />
+      <Head title={"الأخبار - اللجنة العليا للمعاقين"}>
+        <meta name="description" content={"ابق على اطلاع بآخر أخبارنا، فعالياتنا، وإنجازاتنا في دعم الأشخاص ذوي الإعاقة."} />
       </Head>
 
       <div className="min-h-screen bg-gray-50" dir="rtl">
         <PageHeaderImage
           title="الأخبار والأحداث"
-          description="ابق على اطلاع بآخر المستجدات والفعاليات في مركزنا"
+          description="ابق على اطلاع بآخر المستجدات والفعاليات"
         />
 
-        <nav className="container mx-auto py-4  px-4 text-sm text-gray-600">
+        <nav className="container mx-auto py-4 px-4 md:px-16 text-sm text-gray-600">
           <Breadcrumbs breadcrumbs={breadcrumbs} />
         </nav>
 
-        <div className="container mx-auto px-4 py-8">
+        <div className="container mx-auto px-4 md:px-16 py-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {posts.map((item) => (
               <NewsCard item={item} />

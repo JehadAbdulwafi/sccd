@@ -3,8 +3,9 @@ import { NavUser } from '@/components/nav-user';
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
-import { Calendar, Handshake, LayoutGrid, Mail, MessageCircle, Newspaper, NotebookText, UsersRound } from 'lucide-react';
+import { Calendar, Handshake, LayoutGrid, Mail, MessageCircle, Newspaper, NotebookText, UsersRound, FileText, HelpCircle } from 'lucide-react';
 import AppLogo from './app-logo';
+import AppLogoIcon from './app-logo-icon';
 
 const mainNavItems: NavItem[] = [
   {
@@ -18,34 +19,9 @@ const mainNavItems: NavItem[] = [
     icon: MessageCircle,
   },
   {
-    title: 'بحوث والدراسات',
-    href: '/dashboard/publications/list',
-    icon: Newspaper,
-  },
-  {
-    title: 'المجلة العلمية',
-    href: '/dashboard/journal',
-    icon: NotebookText,
-    items: [
-      {
-        title: 'مقالات المجلة',
-        href: '/dashboard/journal/articles/list',
-      },
-      {
-        title: 'أعداد المجلة',
-        href: '/dashboard/journal/issues/list',
-      },
-    ],
-  },
-  {
     title: 'الأخبار',
     href: '/dashboard/posts/list',
     icon: Newspaper,
-  },
-  {
-    title: 'الفعاليات',
-    href: '/dashboard/events/list',
-    icon: Calendar,
   },
   {
     title: 'المستخدمون',
@@ -62,6 +38,21 @@ const mainNavItems: NavItem[] = [
     href: '/dashboard/newsletter',
     icon: Mail,
   },
+  {
+    title: 'شروط الاستخدام',
+    href: '/dashboard/pages/terms',
+    icon: FileText,
+  },
+  {
+    title: 'سياسة الخصوصية',
+    href: '/dashboard/pages/policies',
+    icon: FileText,
+  },
+  {
+    title: 'الأسئلة الشائعة',
+    href: '/dashboard/faqs',
+    icon: HelpCircle,
+  },
 ];
 
 
@@ -73,7 +64,9 @@ export function AppSidebar() {
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
               <Link href="/dashboard" prefetch>
-                <AppLogo />
+                <div className="flex h-14">
+                  <AppLogoIcon className="fill-current text-white dark:text-black" />
+                </div>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>

@@ -21,7 +21,7 @@ export function NavMain({ menu = [] }: { menu: NavItem[] }) {
   };
 
   return (
-    <SidebarGroup className="px-2 py-0">
+    <SidebarGroup className="px-2 py-0 pt-4">
       <SidebarMenu>
         {menu.map((item, key) => {
           if (!item) return null;

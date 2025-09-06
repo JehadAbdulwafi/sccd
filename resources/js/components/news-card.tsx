@@ -1,36 +1,34 @@
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card'
 import { ArrowLeft, Calendar } from 'lucide-react'
 import { Link } from '@inertiajs/react'
-import { Button } from './ui/button'
 import { format } from 'date-fns'
 import { arEG } from 'date-fns/locale'
 
 export default function NewsCard({ item }: { item: Post }) {
   return (
-    <Card key={item.id} className="pt-0 rounded-none border-none transition-shadow shadow-[4px_2px_38px_-11px_rgba(0,_0,_0,_0.1)]">
-      <img
-        src={item.image || "/placeholder.svg"}
-        alt={item.title}
-        width={300}
-        height={200}
-        className="w-full h-48 object-cover"
-      />
-      <CardHeader>
-        <div className="flex items-center gap-2 text-sm text-gray-500">
-          <Calendar className="w-4 h-4" />
-          <span>{new Date(item.created_at).toLocaleDateString("ar-SA")}</span>
-        </div>
-        <CardTitle className="text-xl mb-2">{item.title}</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <Link href={`/news/${item.id}`}>
-          <Button variant="link" className="p-0 h-auto">
-            اقرأ المزيد
-            <ArrowLeft className="mr-2 h-4 w-4" />
-          </Button>
-        </Link>
-      </CardContent>
-    </Card>
+    <Link href={`/news/${item.id}`}>
+      <Card key={item.id} className="pt-0 h-full rounded-none border-none transition-shadow shadow-[4px_2px_38px_-11px_rgba(0,_0,_0,_0.1)]">
+        <img
+          src={item.image || "/placeholder.svg"}
+          alt={item.title}
+          width={300}
+          height={200}
+          className="w-full h-48 object-cover"
+        />
+        <CardHeader>
+          <div className="flex items-center gap-2 text-sm text-gray-500">
+            <Calendar className="w-4 h-4" />
+            <span>{new Date(item.created_at).toLocaleDateString("ar-SA")}</span>
+          </div>
+          <CardTitle className="text-xl mb-2  line-clamp-3">{item.title}</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="text-sm text-gray-500 line-clamp-3">
+            {item.desc}
+          </div>
+        </CardContent>
+      </Card>
+    </Link>
   )
 }
 

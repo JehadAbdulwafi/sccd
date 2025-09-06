@@ -62,7 +62,8 @@ export type ContactMessage = {
 export type Partner = {
   id: number;
   name: string;
-  logo_path: string;
+  logo: string;
+  description: string | null;
   website: string;
   created_at: string;
   updated_at: string;

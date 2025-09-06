@@ -1,8 +1,8 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Mail, MapPin, Send } from "lucide-react"
+import { Facebook, Mail, MapPin, Phone, Send } from "lucide-react"
 import GuestLayout from "@/layouts/guest-layout"
 import { useForm } from '@inertiajs/react';
 import { toast } from 'sonner';
@@ -10,6 +10,7 @@ import PageHeaderImage from "@/components/page-header"
 import { Breadcrumbs } from "@/components/breadcrumbs"
 import { BreadcrumbItem } from "@/types"
 import { Head } from '@inertiajs/react';
+import SectionHeader from "@/components/section-header"
 
 const breadcrumbs: BreadcrumbItem[] = [
   {
@@ -48,28 +49,103 @@ export default function ContactPage() {
 
   return (
     <GuestLayout>
-      <Head title={"اتصل بنا - مركز البحوث الهندسية وتقنية المعلومات"}>
+      <Head title={"اتصل بنا - اللجنة العليا للمعاقين"}>
         <meta name="description" content={"تواصل معنا للاستفسارات، الشراكات، أو أي معلومات أخرى. نحن هنا لخدمتك."} />
       </Head>
       <div className="min-h-screen bg-gray-50" dir="rtl">
         <PageHeaderImage
-          title="اتصل بنا"
+          title="تواصل معنا"
           description="نحن هنا للإجابة على استفساراتكم وتقديم المساعدة في أي وقت"
         />
-        <nav className="container mx-auto py-4  px-4 text-sm text-gray-600">
+        <nav className="container mx-auto pt-8 px-4 md:px-16  px-4 text-sm text-gray-600">
           <Breadcrumbs breadcrumbs={breadcrumbs} />
         </nav>
 
-
-        <div className="container mx-auto px-4 py-16">
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
-            <div>
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-2xl text-primary">أرسل لنا رسالة</CardTitle>
-                  <p className="text-muted-foreground">املأ النموذج أدناه وسنتواصل معك في أقرب وقت ممكن</p>
+        <section className={"py-10"}>
+          <SectionHeader
+            title="فريقنا هنا لمساعدتك"
+            desc="تواصل معنا من خلال أي من قنوات الاتصال أدناه."
+          />
+          <div className="container px-4 md:px-16 mt-8 mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <Card className="border-primary/30 shadow-[4px_2px_38px_-11px_rgba(0,_0,_0,_0.1)]">
+                <CardHeader className="gap-4">
+                  <div className="p-3 w-fit border border-primary/50 rounded-full">
+                    <Mail className="w-8 h-8 text-primary" />
+                  </div>
+                  <CardTitle className="text-xl">راسلنا عبر البريد الإلكتروني</CardTitle>
                 </CardHeader>
+                <CardContent>
+                  <div className="flex items-center gap-1">
+                    <p className="text-primary">توفر الخدمة: </p>
+                    <p>طوال الأسبوع.</p>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <p className="text-primary">وقت الاستجابة: </p>
+                    <p>خلال 5 أيام.</p>
+                  </div>
+                </CardContent>
+                <CardFooter>
+                  <p className="text-primary font-medium text-left w-full">support@sccd.ly</p>
+                </CardFooter>
+              </Card>
+
+              <Card className="border-primary/30 shadow-[4px_2px_38px_-11px_rgba(0,_0,_0,_0.1)]">
+                <CardHeader className="gap-4">
+                  <div className="p-3 w-fit border border-primary rounded-full">
+                    <Phone className="w-8 h-8 text-primary" />
+                  </div>
+                  <CardTitle className="text-xl">الدعم عبر الهاتف</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex items-center gap-1">
+                    <p className="text-primary">توفر الخدمة: </p>
+                    <p>طوال الأسبوع.</p>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <p className="text-primary">وقت الاستجابة: </p>
+                    <p>خلال 5 أيام.</p>
+                  </div>
+                </CardContent>
+                <CardFooter>
+                  <p className="text-primary font-medium text-left w-full" dir='ltr'>+218-91-1234567</p>
+                </CardFooter>
+              </Card>
+
+              <Card className="border-primary/30 shadow-[4px_2px_38px_-11px_rgba(0,_0,_0,_0.1)]">
+                <CardHeader className="gap-4">
+                  <div className="p-3 w-fit border border-primary rounded-full">
+                    <Facebook className="w-8 h-8 text-primary" />
+                  </div>
+                  <CardTitle className="text-xl">التواصل عبر منصة facebook</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex items-center gap-1">
+                    <p className="text-primary">توفر الخدمة: </p>
+                    <p>طوال الأسبوع.</p>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <p className="text-primary">وقت الاستجابة: </p>
+                    <p>خلال 5 أيام.</p>
+                  </div>
+                </CardContent>
+                <CardFooter className='w-full'>
+                  <p className="text-primary font-medium text-left w-full" dir='ltr'>@sccd</p>
+                </CardFooter>
+              </Card>
+            </div>
+
+          </div>
+        </section>
+
+        <section className={"py-10"}>
+          <SectionHeader
+            title="نموذج طلب الدعم"
+            desc="املأ النموذج أدناه وسنتواصل معك في أقرب وقت ممكن"
+          />
+          <div className="container px-4 md:px-16 mt-8 mx-auto">
+            <div>
+              <Card className="shadow-[4px_2px_38px_-11px_rgba(0,_0,_0,_0.1)]">
                 <CardContent>
                   <form className="space-y-6" onSubmit={handleSubmit}>
                     <div className="grid md:grid-cols-2 gap-4">
@@ -146,60 +222,9 @@ export default function ContactPage() {
                   </form>
                 </CardContent>
               </Card>
-
-            </div>
-
-            {/* Contact Information */}
-            <div className="space-y-6">
-              {/* Contact Details */}
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-2xl text-primary">معلومات التواصل</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  <div className="flex items-start gap-4 space-x-reverse">
-                    <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Mail className="w-6 h-6 text-green-600" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">البريد الإلكتروني</h3>
-                      <p className="text-gray-600">info@eitrc.ly</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4 space-x-reverse">
-                    <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <MapPin className="w-6 h-6 text-orange-600" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">العنوان</h3>
-                      <p className="text-gray-600">
-                        نادي الظهرة، بني وليد - ليبيا
-                      </p>
-                    </div>
-                  </div>
-
-                </CardContent>
-              </Card>
-
-              {/* Map Placeholder */}
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-xl text-primary">الموقع على الخريطة</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="w-full h-64 bg-gray-200 rounded-lg flex items-center justify-center">
-                    <img
-                      src="/map-preview.png"
-                      alt="map"
-                      className="w-full h-full object-cover rounded-lg"
-                    />
-                  </div>
-                </CardContent>
-              </Card>
             </div>
           </div>
-        </div>
+        </section>
       </div>
 
     </GuestLayout>

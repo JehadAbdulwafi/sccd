@@ -34,10 +34,10 @@ class PostController extends Controller
   {
     $data = $request->validated();
 
-    // if ($request->hasFile('image')) {
-    //   $path = $request->file('image')->store('posts', 'public');
-    //   $data['image'] = asset('storage/' . $path);
-    // }
+    if ($request->hasFile('image')) {
+      $path = $request->file('image')->store('posts', 'public');
+      $data['image'] = asset('storage/' . $path);
+    }
 
     Post::create($data);
 
@@ -56,12 +56,12 @@ class PostController extends Controller
   {
     $data = $request->validated();
 
-    // if ($request->hasFile('image')) {
-    //   $path = $request->file('image')->store('posts', 'public');
-    //   $data['image'] = asset('storage/' . $path);
-    // } else if (empty($data['image'])) {
-    //   $data['image'] = $post->image;
-    // }
+    if ($request->hasFile('image')) {
+      $path = $request->file('image')->store('posts', 'public');
+      $data['image'] = asset('storage/' . $path);
+    } else if (empty($data['image'])) {
+      $data['image'] = $post->image;
+    }
 
     $post->update($data);
 

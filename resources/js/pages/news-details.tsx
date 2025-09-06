@@ -10,8 +10,8 @@ export default function NewsDetailPage() {
 
   return (
     <GuestLayout>
-      <Head title={`- أخبار مركز البحوث الهندسية وتقنية المعلومات - ${post.title}`}>
-        <meta name="description" content={`اقرأ المزيد عن: ${post.desc}. تفاصيل حول آخر المستجدات والفعاليات في المركز`} />
+      <Head title={`- أخبار اللجنة العليا للمعاقين - ${post.title}`}>
+        <meta name="description" content={`اقرأ المزيد عن: ${post.desc}. تفاصيل حول آخر المستجدات والفعاليات في اللجنة`} />
       </Head>
       <div className="min-h-screen bg-gray-50 pb-16" dir="rtl">
         <PageHeader title={post.title} />

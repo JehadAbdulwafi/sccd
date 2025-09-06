@@ -30,24 +30,24 @@
             }
         </style>
 
-        <title inertia>{{ config('app.name', 'مركز البحوث الهندسية وتقنية المعلومات') }}</title>
+        <title inertia>{{ config('app.name', 'اللجنة العليا للمعاقين') }}</title>
 
-        <meta name="description" content="The official website for the Education, Innovation, and Training Research Center (EITRC).">
-        <meta name="keywords" content="EITRC, education, innovation, research, training">
+        <meta name="description" content="الموقع الرسمي للجنة العليا للمعاقين.">
+        <meta name="keywords" content="اللجنة العليا للمعاقين, ذوي الإعاقة, حقوق المعاقين">
         <link rel="canonical" href="{{ url()->current() }}" />
 
         <!-- Open Graph / Facebook -->
         <meta property="og:type" content="website">
         <meta property="og:url" content="{{ url()->current() }}">
-        <meta property="og:title" content="{{ config('app.name', 'Laravel') }}">
-        <meta property="og:description" content="The official website for the Education, Innovation, and Training Research Center (EITRC).">
+        <meta property="og:title" content="{{ config('app.name', 'اللجنة العليا للمعاقين') }}">
+        <meta property="og:description" content="الموقع الرسمي للجنة العليا للمعاقين.">
         <meta property="og:image" content="{{ asset('logo.svg') }}">
 
         <!-- Twitter -->
         <meta property="twitter:card" content="summary_large_image">
         <meta property="twitter:url" content="{{ url()->current() }}">
-        <meta property="twitter:title" content="{{ config('app.name', 'Laravel') }}">
-        <meta property="twitter:description" content="The official website for the Education, Innovation, and Training Research Center (EITRC).">
+        <meta property="twitter:title" content="{{ config('app.name', 'اللجنة العليا للمعاقين') }}">
+        <meta property="twitter:description" content="الموقع الرسمي للجنة العليا للمعاقين.">
         <meta property="twitter:image" content="{{ asset('logo.svg') }}">
 
         <link rel="icon" href="/favicon.ico" sizes="any">
@@ -58,7 +58,7 @@
         {
             "@@context": "https://schema.org",
             "@@type": "Organization",
-            "name": "Education, Innovation, and Training Research Center (EITRC)",
+            "name": "اللجنة العليا للمعاقين",
             "url": "{{ url('/') }}",
             "logo": "{{ asset('logo.svg') }}"
         }

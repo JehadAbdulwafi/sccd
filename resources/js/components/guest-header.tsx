@@ -3,42 +3,32 @@ import { Button } from '@/components/ui/button';
 import { NavigationMenu, NavigationMenuItem, NavigationMenuList } from '@/components/ui/navigation-menu';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
-import { type BreadcrumbItem, type NavItem } from '@/types';
+import { type NavItem } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
-import { BookOpen, Folder, Menu } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import AppLogo from './app-logo';
 import AppLogoIcon from './app-logo-icon';
 
 const mainNavItems: NavItem[] = [
   {
-    title: 'المجلة العلمية',
-    href: '/journal',
-    // icon: NotebookText,
+    title: 'الرئيسية',
+    href: '/',
   },
   {
-    title: 'البحوث والمنشورات',
-    href: '/publications',
-    // icon: FolderSearch,
-  },
-  {
-    title: 'الأخبار والأحداث',
+    title: 'الأخبار',
     href: '/news',
-    // icon: Newspaper,
   },
   {
     title: 'شركاؤنا',
     href: '/partners',
-    // icon: UsersRound,
   },
   {
     title: 'من نحن',
     href: '/about',
-    // icon: Info,
   },
   {
     title: 'اتصل بنا',
     href: '/contact',
-    // icon: Mail,
   },
 ];
 
@@ -47,7 +37,7 @@ export function GuestHeader() {
   return (
     <>
       <div className="border-b border-sidebar-border/80 bg-white">
-        <div className="container mx-auto flex h-16 items-center px-4  gap-4">
+        <div className="container mx-auto flex h-18 items-center px-4  gap-4">
 
           <div className="flex flex-row w-full items-center justify-between">
             <Link href="/" prefetch className="flex items-center space-x-2">
@@ -64,7 +54,7 @@ export function GuestHeader() {
                         href={item.href}
                         className={cn(
                           page.url === item.href && "text-accent-foreground",
-                          'h-9 cursor-pointer px-3 gap-2 text-md font-medium hover:text-accent-foreground flex flex-row items-center',
+                          'h-9 cursor-pointer px-3 gap-2 text-md font-medium hover:text-primary flex flex-row items-center',
                         )}
                       >
                         {item.title}

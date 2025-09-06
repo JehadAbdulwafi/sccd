@@ -5,7 +5,7 @@ export default function AppLogoIcon(props: React.ImgHTMLAttributes<HTMLImageElem
     <img
       src="/images/logo.png"
       alt="logo"
-      className={cn("h-14 w-14", props.className)}
+      className={cn("h-14", props.className)}
       {...props}
     />
   );
